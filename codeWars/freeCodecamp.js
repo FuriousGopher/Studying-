@@ -94,3 +94,21 @@ let arr2;
 arr2 = [...arr1];  // Змініть цей рядок
 
 console.log(arr2);
+
+
+////////////////////
+
+
+
+const HIGH_TEMPERATURES = {
+    yesterday: 75,
+    today: 77,
+    tomorrow: 80
+};
+
+// Змініть код лише під цим рядком
+
+const { today } = HIGH_TEMPERATURES;
+const { tomorrow } = HIGH_TEMPERATURES;
+
+  ////////////////////////////
