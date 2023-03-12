@@ -84,3 +84,13 @@ const sum = (...args) => {
     return total;
 }
 console.log(sum(1, 2, 3)); // 6
+
+
+//////////////////
+
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+
+arr2 = [...arr1];  // Змініть цей рядок
+
+console.log(arr2);
