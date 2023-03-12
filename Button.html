@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicrosoftLogo</title>
+
+    <style>
+        html, body {
+  background:#F7F9F9;
+  user-select:none;
+  width:100%;
+  height:100%;
+  font-size:16px;
+  font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:#005B9D;
+  overflow:hidden;
+  position:relative;
+}
+
+
+.modal {
+  position:absolute;
+  width:600px;
+  height:60px;
+  background:#0295FF;
+  border-radius:5px;
+  box-shadow:0 25px 55px #bbb;
+  overflow:hidden;
+  left:50%;
+  margin-left:-300px;
+  padding:10px 20px;
+}
+
+.modal-ask {
+  color:#E2F0FB;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.modal-thanks {
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:20px;
+  display:flex;
+}
+.modal-thanks .modal-label {
+  margin-right:0px;
+}
+
+.modal-thanks,
+.modal-ask {
+  bottom:-200px;
+}
+
+.modal-thanks.show,
+.modal-ask.show {
+  bottom:20px;
+  transition:all 50ms ease;
+}
+
+.modal-ask,
+.modal-thanks.show {
+  transition:all 300ms ease;
+}
+
+.modal.clicking,
+.modal.clicking-stuck {
+ /* transform:translate(150px,0);*/
+}
+
+.modal-label {
+  margin-right:30px;
+}
+
+.modal-buttons {
+}
+
+.button {
+  padding:18px 12px;
+  border-radius:3px;
+  display:inline-block;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:bold;
+  margin:0 2px;
+  cursor:pointer;
+  transition:none;
+}
+
+.button-primary {
+  padding:20px 15px;
+  background:white;
+  color:#005B9D;
+  border-color:white;
+  box-shadow:0 3px 2px #005B9D;
+  transition:background 50ms ease,box-shadow 50ms ease;
+}
+
+.button-primary:hover {
+  background:white;
+  box-shadow:0 10px 16px #005B9D;
+}
+/*
+.clicking .button-primary, 
+.clicking-stuck .button-primary,
+*/
+.button-primary:active {
+  box-shadow: inset 0 3px 4px #005B9D;
+  transform: scale(.95);
+  background:#E2F0FB;
+}
+
+.button-secondary {
+  color:#005B9D;
+  width:70px;
+  text-align:center;
+  transition:none;
+  position:relative;
+  cursor:default;
+}
+
+.button-secondary.escaping {
+  
+}
+
+.button-secondary:hover {
+  color:#005B9D;
+}
+
+.button-secondary-inner {
+  transition:none;
+  position:absolute;
+  display:block;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  padding:18px 12px;
+  transform:scale(1);
+  box-sizing:border-box;
+  transition:background 500ms ease;
+  border-radius:3px;
+  background:#4ba9f3;
+}
+
+.modal:hover .button-secondary-inner {
+}
+
+.button-secondary-inner.escaping {
+  transition:none;
+}
+
+
+.button-label-normal {opacity:1;}
+.button-label-hover {opacity:0;}
+
+.reload {
+  position:absolute;
+  bottom:0;
+  left:0;
+  margin:20px;
+}
+    </style>
+    
+</head>
+<body>
+    <script>
+        alert('vanya')
+        var easing = 0.5;
+var buttonOffsetX = 0;
+var targetButtonOffsetX = 0;
+var coordMouseX;
+var coordMouseY;
+
+$(function(){
+  var posButton = $('.button-secondary').offset();
+  var buttonW = $('.button-secondary').outerWidth();
+  var buttonH = $('.button-secondary').outerHeight();
+
+  $(document).on('mouseup', function(e){
+    $('.modal-ask').removeClass('clicking');
+  });
+  
+  $('.button').on('click', function(){
+    thanks();
+  });
+  
+  $(document).on('mousemove', function(e) {
+    
+    coordMouseX = e.pageX - posButton.left;
+    coordMouseY = e.pageY - posButton.top;
+    
+    targetButtonOffsetX = Math.max ( coordMouseX+10, 0 );
+  })
+  
+  function thanks() {
+    $('.modal-ask').removeClass('show');
+    $('.modal-thanks').addClass('show');
+    
+    setTimeout(function(){
+      $('.modal-thanks').removeClass('show');
+    },5000);
+  }
+  
+  function update() {
+    if (coordMouseX >= 0
+     && coordMouseX <= 125
+     && coordMouseY >= 0
+     && coordMouseY <= buttonH) {
+    } else {
+      targetButtonOffsetX = 0;
+    }
+    buttonOffsetX += (targetButtonOffsetX - buttonOffsetX) * easing;
+    
+    $('.button-secondary-inner').css({
+      left: (buttonOffsetX)+'px'
+    });
+    
+    requestAnimationFrame(update);
+  }
+  
+  requestAnimationFrame(update);
+});
+    </script>
+    
+    <div class="world">
+        <div class="modal modal-ask show">
+          <div class="modal-label">This website uses cookies.</div>
+          <div class="modal-buttons">
+            <div class="button button-primary">Accept all cookies</div>
+            <div class="button button-secondary">&nbsp;
+              <div class="button-secondary-inner">Deny</div>
+            </div>
+          </div>
+        </div>
+         
+        <div class="modal modal-thanks">
+          <div class="modal-label">Thanks!</div>
+        </div>
+        
+        <a class="reload" onclick="javascript:location.reload();">Reload</a>
+      </div>
+
+</body>
+</html>
