@@ -25,4 +25,22 @@ editInPlace();
 
 ///////////////////////////////
 
+function freezeObj() {
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+    // Змініть код лише під цим рядком
+
+    Object.freeze(MATH_CONSTANTS)
+    // Змініть код лише над цим рядком
+    try {
+        MATH_CONSTANTS.PI = 99;
+    } catch (ex) {
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();
+
+  ////////////////////
 
