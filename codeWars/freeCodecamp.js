@@ -10,4 +10,19 @@ function sum(arr, n) {
     // Only change code above this line
 }
 
-Testttttttttttttttttttttttttttttttt
+//////////////////////
+
+const s = [5, 7, 2];
+function editInPlace() {
+    // Змініть код лише під цим рядком
+
+    s[0] = 2
+    s[1] = 5
+    s[2] = 7
+    // Змініть код лише над цим рядком
+}
+editInPlace();
+
+///////////////////////////////
+
+
