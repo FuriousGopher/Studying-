@@ -111,4 +111,23 @@ const HIGH_TEMPERATURES = {
 const { today } = HIGH_TEMPERATURES;
 const { tomorrow } = HIGH_TEMPERATURES;
 
-  ////////////////////////////
+////////////////////////////
+
+
+
+const stats = {
+    max: 56.78,
+    standard_deviation: 4.34,
+    median: 34.54,
+    mode: 23.87,
+    min: -0.75,
+    average: 35.85
+};
+
+// Змініть код лише під цим рядком
+const half = (stats) => (stats.max + stats.min) / 2.0;
+const half = ({ max, min }) => (max + min) / 2.0;
+  // Змініть код лише над цим рядком
+
+
+  ///////////////////////////////
