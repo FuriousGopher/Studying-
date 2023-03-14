@@ -127,7 +127,24 @@ const stats = {
 // Змініть код лише під цим рядком
 const half = (stats) => (stats.max + stats.min) / 2.0;
 const half = ({ max, min }) => (max + min) / 2.0;
-  // Змініть код лише над цим рядком
+// Змініть код лише над цим рядком
 
 
-  ///////////////////////////////
+///////////////////////////////
+
+
+const person = {
+    name: "Taylor",
+    sayHello: function () {
+        return `Hello! My name is ${this.name}.`;
+    }
+};
+
+// В ES6 ви можете взагалі видалити ключове слово function і двокрапку, коли визначаєте функції в об’єктах. Ось приклад такого синтаксису://
+
+const person = {
+    name: "Taylor",
+    sayHello() {
+        return `Hello! My name is ${this.name}.`;
+    }
+};
