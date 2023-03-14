@@ -13,6 +13,3 @@ const realNumbers = (n) => {
 const num = realNumbers(20)
 console.log(num)
 
-
-
-dfdfdf
