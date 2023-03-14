@@ -127,7 +127,59 @@ const stats = {
 // Змініть код лише під цим рядком
 const half = (stats) => (stats.max + stats.min) / 2.0;
 const half = ({ max, min }) => (max + min) / 2.0;
-  // Змініть код лише над цим рядком
+// Змініть код лише над цим рядком
 
 
-  ///////////////////////////////
+///////////////////////////////
+
+
+const person = {
+    name: "Taylor",
+    sayHello: function () {
+        return `Hello! My name is ${this.name}.`;
+    }
+};
+
+// В ES6 ви можете взагалі видалити ключове слово function і двокрапку, коли визначаєте функції в об’єктах. Ось приклад такого синтаксису://
+
+const person = {
+    name: "Taylor",
+    sayHello() {
+        return `Hello! My name is ${this.name}.`;
+    }
+};
+/////////////
+
+// Змініть код лише під цим рядком
+class Vegetable {
+    constructor(name) {
+        this.name = name
+    }
+}
+// Змініть код лише над цим рядком
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Повинно показувати 'carrot'
+
+///////////////////////////
+
+// Змініть код лише під цим рядком
+class Thermostat {
+    constructor(fahrenheit) {
+        this._fahrenheit = fahrenheit;
+    }
+
+    get temperature() {
+        return (5 / 9) * (this._fahrenheit - 32);
+    }
+
+    set temperature(celsius) {
+        this._fahrenheit = (celsius * 9.0) / 5 + 32;
+    }
+}
+// Змініть код лише над цим рядком
+
+const thermos = new Thermostat(76); // Налаштування у шкалі Фаренгейта
+let temp = thermos.temperature; // 24.44 градусів за Цельсієм
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 градусів за Цельсієм
