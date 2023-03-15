@@ -13,5 +13,17 @@ function nearestSq(n) {
 }
 
 
-  ////////////////////////
+////////////////////////
 
+function filter_list(l) {
+    let N = [];
+    for (let i = 0; i < l.length; i++) {
+        if (typeof l[i] === "number") {
+            N.push(l[i])
+        }
+    }
+    return N
+}
+
+
+  //////////////////////////
