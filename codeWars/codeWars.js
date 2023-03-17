@@ -45,3 +45,43 @@ function likes(names) {
 }
 
 ////////////////////////////
+
+function heron(a, b, c) {
+    var s = (a + b + c) / 2;
+    return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+}
+
+/////////////////////////////
+
+const doubleChar = (str) => str.split("").map(c => c + c).join("");
+
+//////////////////////////////
+function isValidWalk(walk) {
+    if (walk.length !== 10) {
+        return false; // the walk is not 10 minutes long
+    }
+
+    let x = 0;
+    let y = 0;
+
+    for (let i = 0; i < walk.length; i++) {
+        switch (walk[i]) {
+            case 'n':
+                y++;
+                break;
+            case 's':
+                y--;
+                break;
+            case 'e':
+                x++;
+                break;
+            case 'w':
+                x--;
+                break;
+            default:
+                return false;
+        }
+    }
+
+    return x === 0 && y === 0;
+}
