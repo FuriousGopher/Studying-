@@ -183,3 +183,13 @@ const thermos = new Thermostat(76); // Налаштування у шкалі Ф
 let temp = thermos.temperature; // 24.44 градусів за Цельсієм
 thermos.temperature = 26;
 temp = thermos.temperature; // 26 градусів за Цельсієм
+
+/////////////////////////
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6})(?=\w*\d{2})/;
+let result = pwRegex.test(sampleWord);
+
+Password cheking
+
+//////////////
