@@ -130,3 +130,11 @@ const makeServerRequest = new Promise((resolve, reject) => {
         reject("Data not received");
     }
 });
+
+
+///////////////////////
+
+// complete the function
+function solution(string) {
+    return string.replace(/[A-Z]/g, " $&");
+}
