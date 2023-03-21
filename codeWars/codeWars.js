@@ -154,3 +154,17 @@ function highAndLow(numbers) {
     var result = max + ' ' + min;
     return result;
 }
+
+//////////////////////////////
+
+
+function positiveSum(arr) {
+    let N = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            N += arr[i]
+        }
+
+    }
+    return N
+}
