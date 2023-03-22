@@ -186,5 +186,13 @@ function getCount(str) {
 }
 
 
-  /////////////
+/////////////
+
+function squareDigits(num) {
+    let digits = num.toString().split('');
+    let squared = digits.map(d => parseInt(d) ** 2);
+    return parseInt(squared.join(''));
+}
+
+///////////////////////////
 
