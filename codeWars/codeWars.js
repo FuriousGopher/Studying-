@@ -168,3 +168,31 @@ function positiveSum(arr) {
     }
     return N
 }
+
+///////////////////
+
+function getCount(str) {
+    let N = 0;
+    for (let i = 0; i < str.length; i++)
+        if (str[i] == "a" || str[i] == "e" || str[i] == "i" || str[i] == "o" || str[i] == "u") {
+            N++
+        }
+
+    return N;
+}
+
+function getCount(str) {
+    return str.replace(/[^aeiou]/gi, '').length;
+}
+
+
+/////////////
+
+function squareDigits(num) {
+    let digits = num.toString().split('');
+    let squared = digits.map(d => parseInt(d) ** 2);
+    return parseInt(squared.join(''));
+}
+
+///////////////////////////
+
