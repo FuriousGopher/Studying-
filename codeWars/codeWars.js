@@ -196,3 +196,20 @@ function squareDigits(num) {
 
 ///////////////////////////
 
+function sumTwoSmallestNumbers(numbers) {
+    const compareFn = (a, b) => {
+        if (a < b) {
+            return -1;
+        }
+        if (a > b) {
+            return 1;
+        }
+        if (a == b) {
+            return 0;
+        }
+    }
+    const N = numbers.sort(compareFn)
+    return N[0] + N[1]
+}
+  /////////////////////////
+
