@@ -211,5 +211,22 @@ function sumTwoSmallestNumbers(numbers) {
     const N = numbers.sort(compareFn)
     return N[0] + N[1]
 }
-  /////////////////////////
+
+
+const compareFn1 = (a, b) => a - b;
+
+/////////////////////////
+
+
+function oddOrEven(array) {
+    const callBack = (accum, cur) => accum + cur;
+    const N = array.reduce(callBack, 0)
+    if (N % 2 == 0) {
+        return "even"
+    } else { return "odd" }
+}
+
+ /////////////////////////
+
+
 
