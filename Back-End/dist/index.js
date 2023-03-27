@@ -16,7 +16,6 @@ const db = {
         { id: 4, title: 'devops' }
     ]
 };
-// @ts-ignore
 app.get('/', (req, res) => {
     const a = 4;
     if (a > 5) {
@@ -38,20 +37,18 @@ app.get('/courses', (req, res) => {
     res.json(FoundCourses);
 });
 app.get('/courses/:id', (req, res) => {
-    const foundCours = db.courses.find(c => c.id === +req.params.id);
-    if (!foundCours) {
+    const foundCourse = db.courses.find(c => c.id === +req.params.id);
+    if (!foundCourse) {
         res.sendStatus(404);
         return;
     }
-    res.json(foundCours);
+    res.json(foundCourse);
 });
-// @ts-ignore
 app.get('/users', (req, res) => {
     res.send(' Samurais!');
 });
-// @ts-ignore
 app.post('/users', (req, res) => {
-    res.send('We careate Samurais!');
+    res.send('We create Samurais!');
 });
 app.post('/courses', (req, res) => {
     const createdCours = {
@@ -60,6 +57,10 @@ app.post('/courses', (req, res) => {
     };
     db.courses.push(createdCours);
     res.json(createdCours);
+});
+app.delete('/courses/:id', (req, res) => {
+    db.courses = db.courses.filter(c => c.id !== +req.params.id);
+    res.sendStatus(204);
 });
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

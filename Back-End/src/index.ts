@@ -13,7 +13,7 @@ const db = {
         {id:4, title: 'devops'}
     ]
 }
-// @ts-ignore
+
 app.get('/', (req, res) => {
     const a = 4;
     if (a>5){
@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
         res.send('Hello World!')
     }
 })
-
 app.get('/courses', (req, res) =>{
    let FoundCourses =  db.courses;
    if (req.query.title){
@@ -35,24 +34,21 @@ app.get('/courses', (req, res) =>{
 
     res.json(FoundCourses)
 })
-app.get('/courses/:id', (req, res) =>{
-    const foundCours = db.courses.find(c => c.id === +req.params.id);
-    if (!foundCours){
+app.get('/courses/:id', (req, res) =>{2
+    const foundCourse = db.courses.find(c => c.id === +req.params.id);
+    if (!foundCourse){
         res.sendStatus(404)
         return;
     }
 
-    res.json(foundCours)
+    res.json(foundCourse)
 })
-// @ts-ignore
 app.get('/users', (req, res) => {
     res.send(' Samurais!')
 })
-// @ts-ignore
 app.post('/users', (req, res) => {
-    res.send('We careate Samurais!')
+    res.send('We create Samurais!')
 })
-
 app.post('/courses', (req, res) => {
     const createdCours = {
         id: +(new Date()),
@@ -61,7 +57,12 @@ app.post('/courses', (req, res) => {
     db.courses.push(createdCours)
     res.json(createdCours)
 })
+app.delete('/courses/:id', (req, res) =>{
+    db.courses = db.courses.filter(c => c.id !== +req.params.id);
 
+
+    res.sendStatus(204)
+})
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
